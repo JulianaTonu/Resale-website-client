@@ -1,0 +1,6 @@
+.bg{
+    background: linear-gradient(45deg, rgb(205, 126, 248), rgb(49, 49, 169));
+}
+.indx{
+    z-index: 1;
+}
