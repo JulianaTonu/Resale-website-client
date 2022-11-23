@@ -15,14 +15,14 @@ const Footer = () => {
     <a  href='/'className="link link-hover  text-white">Advertisement</a>
   </div> 
   <div>
-    <span className="footer-title">Company</span> 
+    <span className="footer-title text-white">Company</span> 
     <a href='/' className="link link-hover  text-white">About us</a> 
     <a  href='/'className="link link-hover  text-white">Contact</a> 
     <a href='/' className="link link-hover  text-white">Jobs</a> 
     <a href='/' className="link link-hover  text-white">Press kit</a>
   </div> 
   <div>
-    <span className="footer-title">Legal</span> 
+    <span className="footer-title text-white">Legal</span> 
     <a href='/' className="link link-hover  text-white">Terms of use</a> 
     <a href='/' className="link link-hover  text-white">Privacy policy</a> 
     <a href='/' className="link link-hover  text-white">Cookie policy</a>

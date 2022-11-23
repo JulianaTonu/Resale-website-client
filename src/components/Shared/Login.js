@@ -16,7 +16,7 @@ const Login = () => {
     }
 
     return (
-        <div className="hero my-18 ">
+        <div className="hero  ">
         <div className="hero-content ">
        
           <div className="card flex-shrink-0 shadow-lg bg-base-100 my-10 py-3">
@@ -43,7 +43,7 @@ const Login = () => {
 
 
               <div className="form-control mt-6">
-                <input type="submit" value="Login" className="btn bg-primary"/>
+                <input type="submit" value="Login" className="btn bg"/>
            
                
               </div>
