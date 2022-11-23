@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
-
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-const {signIn} =useContext(AuthContext)
+const {signIn,signInWithGoogle} =useContext(AuthContext)
     const handleSubmit = event =>{
         event.preventDefault()
         const form =event.target
@@ -19,8 +19,19 @@ const {signIn} =useContext(AuthContext)
         console.log('login user', user)
         })
         .catch(err=>console.error(err))
+      }  
+        const handleGooglesignIn=()=>{
+          
+          signInWithGoogle ()
+        .then(result=>{
+        const user = result.user
+        console.log(user)   
+      })
+      .catch(err=>console.error(err))
+      
+    
     }
-
+  
     return (
         <div className="hero  ">
         <div className="hero-content ">
@@ -50,12 +61,17 @@ const {signIn} =useContext(AuthContext)
 
               <div className="form-control mt-6">
                 <input type="submit" value="Login" className="btn bg"/>
-           
-               
               </div>
+
+      {/* //googlesignIn */}
+           <div className="form-control mt-2">
+            
+            <button className="btn text-purple-600 font-bold bg1 " type="submit" onClick={handleGooglesignIn}><FcGoogle/><span className='ml-2'>Google</span></button>
+               </div>
+
             </form>
 
-            <p className=' text-center font-semibold '>New to this website? Please <Link className='text-purple-600 font-bold' to='/register'>Register</Link></p>
+            <p className=' text-center font-semibold  '>New to this website? Please <Link className='text-purple-600 font-bold' to='/register'>Register</Link></p>
           </div>
         </div>
       </div>

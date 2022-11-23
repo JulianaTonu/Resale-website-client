@@ -5,3 +5,6 @@
     z-index: 1;
 }
 
+.bg1{
+    background: linear-gradient(45deg, rgb(9, 228, 137), rgb(251, 244, 122));
+}
