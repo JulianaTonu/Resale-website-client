@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 
 const Register = () => {
-const {createUser}=useContext(AuthContext)
+const {createUser,updateUserProfile}=useContext(AuthContext)
 const navigate =useNavigate()
 
     const handleSignup = event =>{
@@ -18,7 +18,7 @@ const navigate =useNavigate()
         createUser(email,password,name)
         .then(result=>{
           const user=result.user
-          
+          handleUpdateProfile(name)
           console.log('regi user', user)
           form.reset()
           navigate('/login')
@@ -26,6 +26,19 @@ const navigate =useNavigate()
         .catch(e=>console.error(e))
     }
 
+            //updateUserProfile
+            const handleUpdateProfile =(name)=>{
+
+              const profile = {
+    
+                displayName: name,
+                
+              }
+              updateUserProfile(profile)
+              .then(()=>{})
+              .catch(e=>console.error(e))
+            }
+        
     return (
         <div className="hero my-18 ">
         <div className="hero-content ">
