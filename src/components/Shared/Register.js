@@ -1,3 +1,4 @@
+import { stringify } from 'postcss';
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
@@ -27,18 +28,36 @@ const navigate =useNavigate()
     }
 
             //updateUserProfile
-            const handleUpdateProfile =(name)=>{
+            const handleUpdateProfile =(name,email)=>{
 
               const profile = {
     
                 displayName: name,
+                email:email
                 
               }
               updateUserProfile(profile)
-              .then(()=>{})
+              .then(()=>{
+                saveUser(name, email)
+              })
               .catch(e=>console.error(e))
             }
         
+
+            const saveUser =(name, email)=>{
+              const user ={name,email};
+              fetch('http://localhost:5000/users',{
+                method:'POST',
+                headers:{
+                  'content-type':'application/json'
+                },
+                body:JSON.stringify(user)
+              })
+              .then(res=>res.json())
+              .then(data=>{
+                console.log('saveUser',data)
+              })
+            }
     return (
         <div className="hero my-18 ">
         <div className="hero-content ">
@@ -71,7 +90,6 @@ const navigate =useNavigate()
                   <a href className="label-text-alt link link-hover" >Forgot password?</a>
                 </label>
               </div>
-
 
               <div className="form-control mt-6">
                 <input type="submit" value="Register" className="btn bg"/>
