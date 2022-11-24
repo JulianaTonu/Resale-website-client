@@ -59,11 +59,7 @@ const {signIn,signInWithGoogle} =useContext(AuthContext)
               </div>
 
 
-<select className="select w-full max-w-xs shadow-xl">
-  <option disabled selected name='user'>User</option>
-  <option className='seller'>Seller</option>
-  
-</select>
+
               <div className="form-control mt-6">
                 <input type="submit" value="Login" className="btn bg"/>
               </div>
