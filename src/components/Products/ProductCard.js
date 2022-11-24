@@ -6,14 +6,18 @@ const ProductCard = ({product}) => {
         <div className="card w-96 bg-base-100 shadow-xl">
         <figure><img src={img} alt="Shoes" /></figure>
         <div className="card-body">
-          <h2 className="card-title">
+          <h2 className="card-title text-purple-500 font-bold">
             {product_name}
             <div className="badge badge-secondary">NEW</div>
           </h2>
-          <p>{location}</p>
+          <p>Resale Price: ${resale_price}</p>
+          <p>Original Price: ${orginal_price}</p>
+          <p>Years of used: {used}</p>
+          <p>Sellers Name: {sellers_name}</p>
+          <p>Location:{location}</p>
           <div className="card-actions justify-end">
-            <div className="badge badge-outline">Fashion</div> 
-            <div className="badge badge-outline">Products</div>
+            <button className="badge badge-outline btn-sm">Wishlist</button> 
+            <button className="badge badge-outline btn-sm">Buy now</button>
           </div>
         </div>
       </div>
