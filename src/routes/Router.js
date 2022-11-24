@@ -3,6 +3,8 @@ import Register from "../components/Shared/Register";
 import Main from "../layout/Main";
 import Home from './../components/HomePage/Home';
 import Login from './../components/Shared/Login';
+import Products from './../components/Products/Products';
+import Blog from './../components/Blog/Blog';
 
 
 export const router = createBrowserRouter([
@@ -21,7 +23,15 @@ export const router = createBrowserRouter([
         {
             path:'/login',
             element:<Login></Login>
-        }
+        },
+        {
+            path:'/blog',
+            element:<Blog></Blog>
+        },
+        {
+            path:'/products/',
+            element:<Products></Products>
+        },
     ]
 }
 ])

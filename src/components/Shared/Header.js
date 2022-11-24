@@ -38,7 +38,7 @@ const Header = () => {
             <li className='font-bold text-white font-serif'><Link to='/'>Home</Link></li>
             <li className='font-bold text-white font-serif'><Link to='/blog'>Blog</Link></li>
             
-            <li className='font-bold text-white font-serif'><Link to='/category'>Category</Link></li>
+            <li className='font-bold text-white font-serif'><Link to='/products'>Products</Link></li>
             {/* <li className='font-bold  text-white font-serif'><Link to='/login'>Login</Link></li> */}
 
             {/* <li className='font-bold  text-white font-serif'><Link to='/register'>Register</Link></li>

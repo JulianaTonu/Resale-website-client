@@ -1,0 +1,49 @@
+[
+    {
+        "id":1,
+        "category_name":"samsung",
+        "category_id":"637f0fab81140261ffbf2b19",
+        "product_name":"Samsung+Galaxy-A6",
+        "img":"https://teja10.kuikr.com/o1/20190425/ak_1973630247-1556179759.jpeg",
+        "location":"Mirpur",
+        "resale_price":100,
+        "orginal_price":200,
+        "used":3,
+        "sellers_name":"Ashik"
+    },
+    {
+        "id":2,
+        "category_name":"symphony",
+        "category_id":"637f0fab81140261ffbf2b18",
+        "product_name":"Samsung+Galaxy-A6",
+        "img":"https://teja9.kuikr.com/o1/20190425/ak_806287244-1556179770.jpeg",
+        "location":"shyamoli",
+        "resale_price":210,
+        "orginal_price":380,
+        "used":2,
+        "sellers_name":"Mitu"
+    },
+    {
+        "id":3,
+        "category_name":"symphony",
+        "product_name":"Samsung Galaxy",
+        "category_id":"637f0fab81140261ffbf2b18",
+        "img":"https://cdn.vox-cdn.com/thumbor/sPNTDS4A5rjxJHKOrxofzlBuTeE=/0x0:2040x1360/1400x1400/filters:focal(1020x680:1021x681)/cdn.vox-cdn.com/uploads/chorus_asset/file/23227005/vpavic_220201_5008_0023_Edit.jpg",
+        "location":"shyamoli",
+        "resale_price":140,
+        "orginal_price":280,
+        "used":3,
+        "sellers_name":"Ashik"
+    },
+    {
+        "id":4,
+        "category_name":"iphone",
+        "product_name":"637f0fab81140261ffbf2b17",
+        "img":" https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.businessinsider.com%2Fguides%2Ftech%2Fapple-iphone-12-review&psig=AOvVaw3mdje57TLlPbyleVgM5vkG&ust=1669364204899000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCODJoLawxvsCFQAAAAAdAAAAABAE",
+        "location":"Dhanmondi",
+        "resale_price":200,
+        "orginal_price":350,
+        "used":4,
+        "sellers_name":"Mira"
+    }
+]
