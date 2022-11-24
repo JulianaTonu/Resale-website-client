@@ -1,0 +1,27 @@
+
+.ques{
+    border: 1px solid rgb(233, 129, 251);
+    padding: 10px;
+    border-radius: 10px;
+    /* width: 330px; */
+    margin-left: 10%;
+   margin-bottom: 30px;
+    box-shadow: 4px 4px 8px rgb(172, 39, 254);
+    background-color: rgb(234, 242, 254);
+  }
+  
+  @media screen and (max-width:767px){
+    .ques{
+       width: auto;
+       padding: 10px;
+       margin: auto;
+       
+  
+    }
+    
+    .text{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+    }
+  }
