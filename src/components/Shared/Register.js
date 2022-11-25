@@ -106,6 +106,7 @@ const navigate =useNavigate()
                 <select  name='role' className="select w-full max-w-xs shadow-xl">
             <option disabled selected >User</option>
              <option >Seller</option>
+             
   
             </select>
               </div>

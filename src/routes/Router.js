@@ -48,14 +48,14 @@ export const router = createBrowserRouter([
             path:'/myproduct',
             element:<MyProduct></MyProduct>
         },
-        {
-            path:'/sellers',
-            element:<AllSellers></AllSellers>
-        },
-        {
-            path:'/allusers',
-            element:<AllUser></AllUser>
-        },
+        // {
+        //     path:'/sellers',
+        //     element:<AllSellers></AllSellers>
+        // },
+        // {
+        //     path:'/allusers',
+        //     element:<AllUser></AllUser>
+        // },
     ]
     
 },
@@ -70,6 +70,10 @@ children:[
     {
         path:'/dashboard',
         element:<DashBoard></DashBoard>
+    },
+    {
+        path:'/dashboard/alluser',
+        element:<AllUser></AllUser>
     }
 ]
 }
