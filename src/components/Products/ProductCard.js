@@ -1,7 +1,13 @@
-import React from 'react';
-import BookProduct from './MyProduct/BookProduct/BookProduct';
+import React, { useState } from 'react';
+// import BookProduct from './MyProduct/BookProduct/BookProduct';
+
+import BookProduct from "./MyProduct/BookProduct/BookProduct";
 
 const ProductCard = ({product}) => {
+
+  const [products, setProducts] =useState(null)
+
+  console.log('pp',products)
   const {category_name,product_name,img,location,resale_price,orginal_price,used,sellers_name,phone,details}= product
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
@@ -23,13 +29,19 @@ const ProductCard = ({product}) => {
             
            
 
-            <label htmlFor="bookmodal" className="badge badge-outline btn-sm">Book 
+            <label 
+            htmlFor="bookmodal" 
+            className="badge badge-outline btn-sm"
+            onClick={()=>setProducts(product)}
+            >Book 
           Now</label>
            
             </div>
         </div>
+        {/* //modal */}
         <BookProduct
-        
+        product={product}
+      setProducts={setProducts}
         ></BookProduct>
       </div>
     );

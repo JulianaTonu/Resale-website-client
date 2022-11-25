@@ -44,6 +44,7 @@ const {product_name ,img,resale_price,} =product
             <div>
               <div className="font-bold">{product_name}</div>
               <div className="text-xl "> ${resale_price}</div>
+              <div className="text-xl "> Available</div>
 
 
 <Link to ={`/advertise/${product._id}`}><button  className='btn btn-sm bg my-2 ml-4 mr-2'>unsold</button></Link>
