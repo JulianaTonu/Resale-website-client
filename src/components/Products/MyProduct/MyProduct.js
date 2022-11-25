@@ -24,7 +24,7 @@ const MyProduct = () => {
     
 
     if(products.length === 0){
-        return<h1 className='text-red-500 font-bold text-3xl text-center my-32'>No Product Were Added</h1>
+        return <h1 className='text-red-500 font-bold text-3xl text-center my-32'>No Product Were Added</h1>
     }
     console.log('Product',products)
     return (

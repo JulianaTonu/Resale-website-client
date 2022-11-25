@@ -36,6 +36,7 @@ const {user}=useContext(AuthContext)
     const newProduct ={...product}
     newProduct[field]=value;
     setProduct(newProduct)
+    console.log('newproduct' ,newProduct)
     } 
     return (
         <div>
@@ -52,20 +53,21 @@ const {user}=useContext(AuthContext)
                    <input onBlur={handleInputBlur} type="text" name='resale_price' placeholder='Resale Price' className="input input-bordered input-primary w-full"  />
                    <input onBlur={handleInputBlur} type="text" name='original_price' placeholder='Original Price' className="input input-bordered input-primary w-full"  />
                    <input onBlur={handleInputBlur} type="time" name='time' placeholder='time' className="input input-bordered input-primary w-full"  />
-                   <input onBlur={handleInputBlur} type="used" name='used' placeholder='years of used' className="input input-bordered input-primary w-full"  />
-       
+                   <input onBlur={handleInputBlur} type="text" name='used' placeholder='years of used' className="input input-bordered input-primary w-full"  />
+                 
                    <input onBlur={handleInputBlur} type="text" name='sellers_name' placeholder='Seller name' className="input input-bordered input-primary w-full"  />
                    <input onBlur={handleInputBlur} type="text" name='email' value={user?.email} placeholder='email' readOnly className="input input-bordered input-primary w-full"  />
                    <input onBlur={handleInputBlur} type="text" name='phone' placeholder='phone' className="input input-bordered input-primary w-full"  />
                    <input onBlur={handleInputBlur} type="text" name='location' placeholder='location' className="input input-bordered input-primary w-full"  />
 
                    <input onBlur={handleInputBlur} type="text" name='details' placeholder='Details' className="input input-bordered input-primary w-full"  />
-       
+
                    <br />
               
                    </div>
                    <div className='my-3 text-center'>
-              <Link to={'/myproduct'}><input type="submit" value='Add Product' className="btn btn-active bg w-40 px-10 "/></Link>
+                   <input type="submit" value='Add Product' className="btn btn-active bg w-40 px-10 "/>
+              {/* <Link to={'/myproduct'}></Link> */}
               </div>
                </Form>
               </div>
