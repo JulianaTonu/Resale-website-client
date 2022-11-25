@@ -9,6 +9,9 @@ import ExtraPage from "../components/ExtraPage/ExtraPage";
 import AddProduct from './../components/Products/AddProduct/AddProduct';
 import MyProduct from "../components/Products/MyProduct/MyProduct";
 import AllSellers from './../components/AllSellers/AllSellers';
+import AllUser from "../components/AllUser/AllUser";
+import DashBoard from './../components/DashBoard/DashBoard';
+import DashboardLayout from "../layout/DashboardLayout";
 
 
 export const router = createBrowserRouter([
@@ -49,11 +52,25 @@ export const router = createBrowserRouter([
             path:'/sellers',
             element:<AllSellers></AllSellers>
         },
+        {
+            path:'/allusers',
+            element:<AllUser></AllUser>
+        },
     ]
     
 },
 {
     path:'*',
     element:<ExtraPage></ExtraPage>
+},
+{
+path:'/dashboard',
+element:<DashboardLayout></DashboardLayout>,
+children:[
+    {
+        path:'/dashboard',
+        element:<DashBoard></DashBoard>
+    }
+]
 }
 ])

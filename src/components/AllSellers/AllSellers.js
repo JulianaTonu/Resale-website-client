@@ -3,11 +3,8 @@ import { AuthContext } from '../context/AuthProvider';
 
 
 const AllSellers = () => {
-    const {loading}=useContext(AuthContext)
-   
 
-    const [sellers, setSellers]=useState([])
-
+ const [sellers, setSellers]=useState([])
 
 console.log('sellers',sellers)
 
@@ -31,6 +28,7 @@ console.log('sellers',sellers)
         <th></th>
         <th>Name</th>
         <th>Email</th>
+        <th>Action</th>
         
       </tr>
     </thead>
@@ -41,6 +39,7 @@ console.log('sellers',sellers)
             <th>{index+1}</th>
             <td>{seller.name}</td>
             <td>{seller.email}</td>
+            <td >X</td>
             
           </tr>
           )
