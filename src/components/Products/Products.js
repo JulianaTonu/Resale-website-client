@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ProductCard from './ProductCard';
+// import BookProduct from './MyProduct/BookProduct/BookProduct';
 
 const Products = () => {
     const {category_name} =useLoaderData()
@@ -31,6 +32,7 @@ console.log('cate',category_name)
 }
 
             </div>
+            
         </div>
     );
 };

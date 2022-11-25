@@ -1,4 +1,5 @@
 import React from 'react';
+import BookProduct from './MyProduct/BookProduct/BookProduct';
 
 const ProductCard = ({product}) => {
   const {category_name,product_name,img,location,resale_price,orginal_price,used,sellers_name,phone,details}= product
@@ -19,10 +20,17 @@ const ProductCard = ({product}) => {
           <p>Contact:{phone}</p>
           <p>{details}</p>
           <div className="card-actions justify-end">
-            <button className="badge badge-outline btn-sm">Book Now</button> 
-            {/* <button className="badge badge-outline btn-sm">Buy now</button> */}
-          </div>
+            
+           
+
+            <label htmlFor="bookmodal" className="badge badge-outline btn-sm">Book 
+          Now</label>
+           
+            </div>
         </div>
+        <BookProduct
+        
+        ></BookProduct>
       </div>
     );
 };
