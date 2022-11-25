@@ -8,6 +8,7 @@ import Blog from './../components/Blog/Blog';
 import ExtraPage from "../components/ExtraPage/ExtraPage";
 import AddProduct from './../components/Products/AddProduct/AddProduct';
 import MyProduct from "../components/Products/MyProduct/MyProduct";
+import AllSellers from './../components/AllSellers/AllSellers';
 
 
 export const router = createBrowserRouter([
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
         {
             path:'/myproduct',
             element:<MyProduct></MyProduct>
+        },
+        {
+            path:'/sellers',
+            element:<AllSellers></AllSellers>
         },
     ]
     
