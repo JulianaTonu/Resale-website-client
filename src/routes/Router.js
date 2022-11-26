@@ -16,6 +16,8 @@ import AdminRoute from "./AdminRoute";
 import SellerRoute from "./SellerRoute";
 import Order from './../components/Products/MyProduct/OrderProduct/Order';
 import BuyerRoute from './BuyerRoute';
+import ReportProducts from "../components/Products/ReportProduct";
+import ReportProduct from "../components/Products/ReportProduct";
 
 
 export const router = createBrowserRouter([
@@ -44,15 +46,13 @@ export const router = createBrowserRouter([
             element:<Products></Products>,
             loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
         },
-        {
-            path:'/order',
-            element:<Order></Order>
-        },
-        
+       
         {
             path:'/allusers',
             element:<AllUser></AllUser>
         },
+
+        
        
     ]
     
@@ -89,6 +89,10 @@ children:[
     {
         path:'/dashboard/myorder',
         element:<BuyerRoute><Order></Order></BuyerRoute>
+    },
+    {
+        path:'/dashboard/report',
+        element:<AdminRoute><ReportProduct></ReportProduct></AdminRoute>
     },
 ]
 
