@@ -15,7 +15,7 @@ console.log('users',users)
     },[])
     return (
         <div grid grid-cols-1 >
-            <h1 className='text-2xl font-bold text-purple-500 text-center my-5'>Total seller {users.length}</h1>
+            <h1 className='text-2xl font-bold text-purple-500 text-center my-5'>Total Buyers {users.length}</h1>
 
             <div className="overflow-x-auto">
   <table className="table w-full">

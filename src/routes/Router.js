@@ -12,6 +12,7 @@ import AllSellers from './../components/AllSellers/AllSellers';
 import AllUser from "../components/AllUser/AllUser";
 import DashBoard from './../components/DashBoard/DashBoard';
 import DashboardLayout from "../layout/DashboardLayout";
+import AdminRoute from "./AdminRoute";
 
 
 export const router = createBrowserRouter([
@@ -52,10 +53,10 @@ export const router = createBrowserRouter([
         //     path:'/sellers',
         //     element:<AllSellers></AllSellers>
         // },
-        // {
-        //     path:'/allusers',
-        //     element:<AllUser></AllUser>
-        // },
+        {
+            path:'/allusers',
+            element:<AllUser></AllUser>
+        },
     ]
     
 },
@@ -72,9 +73,17 @@ children:[
         element:<DashBoard></DashBoard>
     },
     {
-        path:'/dashboard/alluser',
+        path:'/dashboard/sellers',
+        element:<AllSellers></AllSellers>
+    },
+    {
+        path:'/dashboard/allusers',
         element:<AllUser></AllUser>
     },
+    // {
+    //     path:'/dashboard/alluser',
+    //     element:<AdminRoute><AllUser></AllUser></AdminRoute>
+    // },
     {
         path:'/dashboard/addproduct',
         element:<AddProduct></AddProduct>
