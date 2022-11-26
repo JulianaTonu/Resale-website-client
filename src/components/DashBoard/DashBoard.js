@@ -1,14 +1,14 @@
 import React from 'react';
-import AllSellers from '../AllSellers/AllSellers';
-import AllUser from '../AllUser/AllUser';
+// import AllSellers from '../AllSellers/AllSellers';
+// import AllUser from '../AllUser/AllUser';
 
 
 
 const DashBoard = () => {
     return (
         <div>
-           <AllSellers></AllSellers>
-         
+           
+         <h1>Welcome to Dashboard</h1>
 
         </div>
     );
