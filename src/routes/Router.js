@@ -15,6 +15,7 @@ import DashboardLayout from "../layout/DashboardLayout";
 import AdminRoute from "./AdminRoute";
 import SellerRoute from "./SellerRoute";
 import Order from './../components/Products/MyProduct/OrderProduct/Order';
+import BuyerRoute from './BuyerRoute';
 
 
 export const router = createBrowserRouter([
@@ -47,18 +48,12 @@ export const router = createBrowserRouter([
             path:'/order',
             element:<Order></Order>
         },
-        {
-            path:'/myproduct',
-            element:<MyProduct></MyProduct>
-        },
-        // {
-        //     path:'/sellers',
-        //     element:<AllSellers></AllSellers>
-        // },
+        
         {
             path:'/allusers',
             element:<AllUser></AllUser>
         },
+       
     ]
     
 },
@@ -91,6 +86,12 @@ children:[
         path:'/dashboard/myproduct',
         element:<SellerRoute><MyProduct></MyProduct></SellerRoute>
     },
+    {
+        path:'/dashboard/myorder',
+        element:<BuyerRoute><Order></Order></BuyerRoute>
+    },
 ]
+
 }
+
 ])

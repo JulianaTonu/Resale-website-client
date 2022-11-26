@@ -5,9 +5,10 @@ import { toast } from 'react-hot-toast';
 const BookProduct = ({product,loading, setProducts}) => {
 
     const {user} =useContext(AuthContext)
-    const {product_name,location,resale_price, phone,img} =product
+    const {product_name,location,resale_price,phone} =product
 
     console.log('porpo',product)
+
     const handleBooking=event =>{
         event.preventDefault();
         const form =event.target;
@@ -16,9 +17,9 @@ const BookProduct = ({product,loading, setProducts}) => {
         const pName=form.pName.value
         const price=form.price.value
         const location=form.location.value
-        const phone=form.phone.value
+        const phonenum=form.phonenum.value
         const img= product.img
-console.log(name,email,pName,price,location,phone,img)
+console.log(name,email,pName,price,location,img)
 
 const booking={
     UserName:name,
@@ -26,7 +27,7 @@ const booking={
     product_name:pName,
     price, 
     location,
-    phone,
+    phonenum,
     img,
 }
 fetch(`http://localhost:5000/booking`,{
@@ -42,12 +43,16 @@ fetch(`http://localhost:5000/booking`,{
   
 .then(data=>{
   console.log(data)
+
   if(data.acknowledged){
     toast.success("booking Confirmed")
+    // setProducts(null)
+    form.reset('')
   }
 })
 console.log('booking',booking)
-setProducts(null)
+
+
     
 if(loading){
     return<div>Loading</div>
@@ -67,10 +72,10 @@ if(loading){
     <input type="text" placeholder="Type here" name='pName'  defaultValue={product_name} disabled className="input input-bordered input-primary w-full  my-2" />
     <input type="text" placeholder="Type here" name='price' defaultValue={resale_price} disabled className="input input-bordered input-primary w-full  my-2"/>
     <input type="text" placeholder="Type here" name='location' defaultValue={location} disabled className="input input-bordered input-primary w-full  my-2" />
-    <input type="text" placeholder="Type here" name='phone' defaultValue={phone} disabled className="input input-bordered input-primary w-full  my-2" />
+    <input type="text" placeholder="Type here" name='phonenum' defaultValue={phone} disabled className="input input-bordered input-primary w-full  my-2" />
     
      
-    <input type="submit" value="Submit" className='w-full  bg py-3 rounded-md' />
+    <input type="submit" value="Submit" className='w-full btn bg py-3 rounded-md' />
     </form>
   </div>
 </div>

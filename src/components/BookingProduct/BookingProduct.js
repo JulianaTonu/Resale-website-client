@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 
-const BookingProduct = () => {
-    return (
+// const BookingProduct = () => {
+//     return (
 //         <div>
 //             <input type="checkbox" id="my-modal" className="modal-toggle" />
 // <div className="modal">
@@ -14,7 +14,7 @@ const BookingProduct = () => {
 //   </div>
 // </div>
 //         </div>
-    );
-};
+//     );
+// };
 
-export default BookingProduct;
+// export default BookingProduct;

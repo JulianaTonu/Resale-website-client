@@ -29,6 +29,7 @@ console.log('orders',orders)
         <th>Image</th>
         <th>Name</th>
         <th>Email</th>
+        <th>Price</th>
         <th>Action</th>
         
       </tr>
@@ -38,11 +39,16 @@ console.log('orders',orders)
       {
         orders.map((order,index)=><tr key ={order._id}>
             <th>{index+1}</th>
-            <td>{order.img}</td>
+            <td>
+              <div className='rounded-xl w-24  '>
+                <img src={order.img} alt="" />
+              </div>
+            </td>
+            
             <td>{order.product_name}</td>
             <td>{order.email}</td>
             <td>{order.price}</td>
-            <td >X</td>
+            <td ><button className='btn bg btn-sm'>Pay</button></td>
             
           </tr>
           )

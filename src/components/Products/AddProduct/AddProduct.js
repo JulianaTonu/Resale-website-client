@@ -51,7 +51,7 @@ const {user}=useContext(AuthContext)
                    <input onBlur={handleInputBlur} type="text" name='category_name' placeholder='Category_name' className="input input-bordered input-primary w-full"  />
                    <input onBlur={handleInputBlur} type="text" name='img' placeholder='ImgUrl' className="input input-bordered input-primary w-full"  />
                    <input onBlur={handleInputBlur} type="text" name='resale_price' placeholder='Resale Price' className="input input-bordered input-primary w-full"  />
-                   <input onBlur={handleInputBlur} type="text" name='original_price' placeholder='Original Price' className="input input-bordered input-primary w-full"  />
+                   <input onBlur={handleInputBlur} type="text" name='orginal_price' placeholder='Original Price' className="input input-bordered input-primary w-full"  />
                    <input onBlur={handleInputBlur} type="time" name='time' placeholder='time' className="input input-bordered input-primary w-full"  />
                    <input onBlur={handleInputBlur} type="text" name='used' placeholder='years of used' className="input input-bordered input-primary w-full"  />
                  

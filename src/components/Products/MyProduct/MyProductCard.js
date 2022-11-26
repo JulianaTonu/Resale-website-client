@@ -1,17 +1,64 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
-
- 
-
 
 const MyProductCard = ({product}) => {
     console.log('product',product)
 
-const {product_name ,img,resale_price,} =product
+const {product_name ,img,resale_price,location,phone,details,used} =product
 
  const [myproduct, setMyProduct]=useState(product)
      
+ console.log('myproduct',myproduct)
+
+ const handleAdvertise = event =>{
+
+  event.preventDefault();
+  
+  const product_name =product?.product_name
+  const category =product?.category_name
+  const price=product?.resale_price
+  const img= product?.img
+  const location=product?.location
+  const phone =product?.phone
+  const details =product?.details
+  const used =product?.used
+
+console.log(product_name,category,price,img)
+
+const advertise={
+  product_name,
+  category,
+  price, 
+  img,
+  location,
+  phone,
+  used,
+  details
+}
+fetch(`http://localhost:5000/advertise`,{
+
+method:'POST',
+headers:{
+'content-type':'application/json'
+},
+body:JSON.stringify(advertise)
+
+})
+
+.then(res=>res.json())
+
+.then(data=>{
+console.log(data)
+if(data.acknowledged){
+toast.success("Add  Advertise")
+
+}
+})
+console.log('advertise',advertise)
+ }
+
+ 
+
     const handleDelete =id =>{
         const procced =window.confirm(`Are you sure you want to delete this product?`)
         
@@ -47,7 +94,7 @@ const {product_name ,img,resale_price,} =product
               <div className="text-xl "> Available</div>
 
 
-<Link to ={`/advertise/${product._id}`}><button  className='btn btn-sm bg my-2 ml-4 mr-2'>unsold</button></Link>
+<button onClick={handleAdvertise} className='btn btn-sm bg my-2 ml-4 mr-2'>Advertise</button>
 <button onClick={()=>handleDelete(product._id)} className='btn btn-sm my-2'>Delete</button>
               
             </div>
