@@ -3,7 +3,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 
 import UseBuyer from '../hooks/UseBuyer';
 import { AuthContext } from './../components/context/AuthProvider';
-// import { AuthContext } from './../context/AuthProvider';
+
 
 const BuyerRoute = ({children}) => {
     const {user,loading}=useContext(AuthContext)
