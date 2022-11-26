@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 const BookProduct = ({product,loading, setProducts}) => {
 
     const {user} =useContext(AuthContext)
-    const {product_name,location,resale_price, phone} =product
+    const {product_name,location,resale_price, phone,img} =product
 
     console.log('porpo',product)
     const handleBooking=event =>{
@@ -17,7 +17,8 @@ const BookProduct = ({product,loading, setProducts}) => {
         const price=form.price.value
         const location=form.location.value
         const phone=form.phone.value
-console.log(name,email,pName,price,location,phone)
+        const img= product.img
+console.log(name,email,pName,price,location,phone,img)
 
 const booking={
     UserName:name,
@@ -25,7 +26,8 @@ const booking={
     product_name:pName,
     price, 
     location,
-    phone
+    phone,
+    img,
 }
 fetch(`http://localhost:5000/booking`,{
   method:'POST',

@@ -14,6 +14,7 @@ import DashBoard from './../components/DashBoard/DashBoard';
 import DashboardLayout from "../layout/DashboardLayout";
 import AdminRoute from "./AdminRoute";
 import SellerRoute from "./SellerRoute";
+import Order from './../components/Products/MyProduct/OrderProduct/Order';
 
 
 export const router = createBrowserRouter([
@@ -42,10 +43,10 @@ export const router = createBrowserRouter([
             element:<Products></Products>,
             loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
         },
-        // {
-        //     path:'/addproduct',
-        //     element:<AddProduct></AddProduct>
-        // },
+        {
+            path:'/order',
+            element:<Order></Order>
+        },
         {
             path:'/myproduct',
             element:<MyProduct></MyProduct>
