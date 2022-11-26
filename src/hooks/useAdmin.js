@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from 'react';
-const useAdmin =email=>{
+const useAdmin = email =>{
 
-    const [isAdmin, setIsAdmin] =useState(false)
+    const [isAdmin, setIsAdmin] = useState(false)
     
     useEffect(()=>{
         if(email){
