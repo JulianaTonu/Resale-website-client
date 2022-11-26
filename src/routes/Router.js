@@ -40,10 +40,10 @@ export const router = createBrowserRouter([
             element:<Products></Products>,
             loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
         },
-        {
-            path:'/addproduct',
-            element:<AddProduct></AddProduct>
-        },
+        // {
+        //     path:'/addproduct',
+        //     element:<AddProduct></AddProduct>
+        // },
         {
             path:'/myproduct',
             element:<MyProduct></MyProduct>
@@ -74,7 +74,15 @@ children:[
     {
         path:'/dashboard/alluser',
         element:<AllUser></AllUser>
-    }
+    },
+    {
+        path:'/dashboard/addproduct',
+        element:<AddProduct></AddProduct>
+    },
+    {
+        path:'/dashboard/myproduct',
+        element:<MyProduct></MyProduct>
+    },
 ]
 }
 ])
