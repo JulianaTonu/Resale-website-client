@@ -13,6 +13,7 @@ import AllUser from "../components/AllUser/AllUser";
 import DashBoard from './../components/DashBoard/DashBoard';
 import DashboardLayout from "../layout/DashboardLayout";
 import AdminRoute from "./AdminRoute";
+import SellerRoute from "./SellerRoute";
 
 
 export const router = createBrowserRouter([
@@ -74,23 +75,20 @@ children:[
     },
     {
         path:'/dashboard/sellers',
-        element:<AllSellers></AllSellers>
+        element:<AdminRoute><AllSellers></AllSellers></AdminRoute>
     },
     {
         path:'/dashboard/allusers',
-        element:<AllUser></AllUser>
+        element:<AdminRoute><AllUser></AllUser></AdminRoute>
     },
-    // {
-    //     path:'/dashboard/alluser',
-    //     element:<AdminRoute><AllUser></AllUser></AdminRoute>
-    // },
+    
     {
         path:'/dashboard/addproduct',
-        element:<AddProduct></AddProduct>
+        element:<SellerRoute><AddProduct></AddProduct></SellerRoute>
     },
     {
         path:'/dashboard/myproduct',
-        element:<MyProduct></MyProduct>
+        element:<SellerRoute><MyProduct></MyProduct></SellerRoute>
     },
 ]
 }
