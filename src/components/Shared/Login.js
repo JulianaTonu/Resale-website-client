@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
-import { FcGoogle } from "react-icons/fc";
+
 
 const Login = () => {
-const {signIn,signInWithGoogle} =useContext(AuthContext)
+const {signIn} =useContext(AuthContext)
     const handleSubmit = event =>{
         event.preventDefault()
         const form =event.target
@@ -20,17 +20,17 @@ const {signIn,signInWithGoogle} =useContext(AuthContext)
         })
         .catch(err=>console.error(err))
       }  
-        const handleGooglesignIn=()=>{
+    //     const handleGooglesignIn=()=>{
           
-          signInWithGoogle ()
-        .then(result=>{
-        const user = result.user
-        console.log(user)   
-      })
-      .catch(err=>console.error(err))
+    //       signInWithGoogle ()
+    //     .then(result=>{
+    //     const user = result.user
+    //     console.log(user)   
+    //   })
+    //   .catch(err=>console.error(err))
       
     
-    }
+    // }
   
     return (
         <div className="hero  ">
@@ -64,11 +64,7 @@ const {signIn,signInWithGoogle} =useContext(AuthContext)
                 <input type="submit" value="Login" className="btn bg"/>
               </div>
 
-      {/* //googlesignIn */}
-           <div className="form-control mt-2">
-            
-            <button className="btn text-purple-600 font-bold bg1 " type="submit" onClick={handleGooglesignIn}><FcGoogle/><span className='ml-2'>Google</span></button>
-               </div>
+     
 
             </form>
 

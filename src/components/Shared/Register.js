@@ -1,10 +1,11 @@
-import { stringify } from 'postcss';
+// import { stringify } from 'postcss';
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
+import { FcGoogle } from "react-icons/fc"
 
 const Register = () => {
-const {createUser,updateUserProfile}=useContext(AuthContext)
+const {createUser,updateUserProfile,signInWithGoogle}=useContext(AuthContext)
 const navigate =useNavigate()
 
     const handleSignup = event =>{
@@ -29,7 +30,19 @@ const navigate =useNavigate()
           navigate('/login')
         })
         .catch(e=>console.error(e))
+
+        
     }
+
+    const handleGooglesignIn=()=>{
+          
+      signInWithGoogle ()
+    .then(result=>{
+    const user = result.user
+    console.log(user)   
+  })
+  .catch(err=>console.error(err))
+}
 
             //updateUserProfile
             const handleUpdateProfile =(name,email,role)=>{
@@ -120,7 +133,11 @@ const navigate =useNavigate()
                 <input type="submit" value="Register" className="btn bg"/>
            
               </div>
-
+ {/* //googlesignIn */}
+ <div className="form-control mt-2">
+            
+            <button className="btn text-purple-600 font-bold bg1 " type="submit" onClick={handleGooglesignIn}><FcGoogle/><span className='ml-2'>Google</span></button>
+               </div>
 
             </form>
 
