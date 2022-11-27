@@ -70,7 +70,7 @@ console.log('advertise',advertise)
           .then(data=>{
             console.log(data)
             if(data.deletedCount > 0){
-              toast.success('Review Deleted Successfully')
+              toast.success('Product Deleted Successfully')
               const remaining = myproduct.filter(pro=>pro._id !== id)
               setMyProduct(remaining)
             }

@@ -6,9 +6,9 @@ import React from 'react';
 
 const DashBoard = () => {
     return (
-        <div>
+        <div className=''>
            
-         <h1>Welcome to Dashboard</h1>
+         <h1 className='text-4xl font-bold text-bg  text-center  mt-32'>Welcome to Dashboard</h1>
 
         </div>
     );

@@ -56,18 +56,24 @@ const {user}=useContext(AuthContext)
                    <input onBlur={handleInputBlur} type="text" name='used' placeholder='years of used' className="input input-bordered input-primary w-full"  />
                  
                    <input onBlur={handleInputBlur} type="text" name='sellers_name' placeholder='Seller name' className="input input-bordered input-primary w-full"  />
-                   <input onBlur={handleInputBlur} type="text" name='email' value={user?.email} placeholder='email' readOnly className="input input-bordered input-primary w-full"  />
-                   <input onBlur={handleInputBlur} type="text" name='phone' placeholder='phone' className="input input-bordered input-primary w-full"  />
+                   <input onBlur={handleInputBlur} type="text" name='email' defaultValue={user?.email} placeholder='email'  className="input input-bordered input-primary w-full"  />
+
+                   <input onBlur={handleInputBlur} type="text" name='phone' placeholder='phone'  className="input  input-bordered input-primary w-full"  />
+
                    <input onBlur={handleInputBlur} type="text" name='location' placeholder='location' className="input input-bordered input-primary w-full"  />
 
                    <input onBlur={handleInputBlur} type="text" name='details' placeholder='Details' className="input input-bordered input-primary w-full"  />
 
+                   <input onBlur={handleInputBlur} type="text" name='status' placeholder='Status' className="input input-bordered input-primary w-full"  />
+
+                   <input onBlur={handleInputBlur} type="text" name='verify' placeholder='not verified' className="input input-bordered input-primary w-full"  />
+
                    <br />
-              
+                 {/* <Link to={'/myproduct'}></Link> */}
                    </div>
                    <div className='my-3 text-center'>
                    <input type="submit" value='Add Product' className="btn btn-active bg w-40 px-10 "/>
-              {/* <Link to={'/myproduct'}></Link> */}
+           
               </div>
                </Form>
               </div>
