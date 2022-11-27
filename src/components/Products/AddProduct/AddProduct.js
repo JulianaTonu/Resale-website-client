@@ -36,6 +36,7 @@ const {user}=useContext(AuthContext)
     const newProduct ={...product}
     newProduct[field]=value;
     setProduct(newProduct)
+    
     console.log('newproduct' ,newProduct)
     } 
     return (

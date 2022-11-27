@@ -4,9 +4,17 @@ import { AuthContext } from '../context/AuthProvider';
 
 
 const Login = () => {
-const {signIn} =useContext(AuthContext)
+const {signIn, loading} =useContext(AuthContext)
 const location =useLocation()
 const navigate =useNavigate()
+
+//add spinner
+if(loading){
+  return (
+      <button className="btn loading "></button>
+  )
+}
+
     const handleSubmit = event =>{
       
 
