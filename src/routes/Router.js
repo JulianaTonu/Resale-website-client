@@ -18,6 +18,7 @@ import Order from './../components/Products/MyProduct/OrderProduct/Order';
 import BuyerRoute from './BuyerRoute';
 import ReportProducts from "../components/Products/ReportProduct";
 import ReportProduct from "../components/Products/ReportProduct";
+import PrivateRoute from './PrivateRoute';
 
 
 export const router = createBrowserRouter([
@@ -43,7 +44,7 @@ export const router = createBrowserRouter([
         },
         {
             path:'/categories/:id',
-            element:<Products></Products>,
+            element:<PrivateRoute><Products></Products></PrivateRoute>,
             loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
         },
        

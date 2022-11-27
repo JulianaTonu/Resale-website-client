@@ -1,17 +1,52 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { Form, Link } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 
 const AddProduct = () => {
 const {user}=useContext(AuthContext)
-    const [product, setProduct]=useState({})
+
+const navigate =useNavigate()
+// const [product, setProduct]=useState({})
     
-    console.log('seller email ',user?.email)
-    const handleAddProduct=event=>{
+const handleAddProduct=event=>{
     event.preventDefault()
-    console.log(product)
+    const form =event.target;
+    const name =user?.displayName || 'unregistered';
+    const pname =form.pname.value
+    const cname =form.cname.value
+    const rprice =form.rprice.value
+    const orprice =form.orprice.value
+    const used =form.used.value
+    const location =form.location.value
+    const details =form.details.value
+    const condition  =form.condition.value
+    const email =user?.email || 'unregistered';
+    const img =form.img.value;
+    const status ='not-reported';
+  
+    const phone =form.phone.value;
+    const time =form.time.value;
+    console.log(name, email)
+  
+const addproduct ={
+product_name:pname,
+category_name:cname,
+img: img,    
+resale_price:rprice,
+orginal_price:orprice,
+used:used,
+condition :condition ,
+sellers_name:name,
+email:email,
+location:location,
+details:details,
+phone:phone,
+status:status,
+time:time
+    }
+
 
     fetch('http://localhost:5000/products',{
 
@@ -19,64 +54,67 @@ const {user}=useContext(AuthContext)
      headers:{
         'content-type':'application/json'
      },
-     body: JSON.stringify(product)
+     body: JSON.stringify(addproduct)
     })
     .then(res=>res.json())
     .then(data=>{
         toast.success('Product added Successfully')
         console.log(data)
         event.target.reset()
+        navigate('/dashboard/myproduct')
     })
    
     }
-
-    const handleInputBlur =event=>{
-    const field =event.target.name
-    const value =event.target.value
-    const newProduct ={...product}
-    newProduct[field]=value;
-    setProduct(newProduct)
-    
-    console.log('newproduct' ,newProduct)
-    } 
+ 
     return (
         <div>
         <h1 className='text-3xl text-primary font-bold text-center my-10'>Add Product </h1>
+
+        <form onSubmit={handleAddProduct}>
+
+<div className='grid grid-cols-1 lg:grid-cols-2 gap-4 p-10 bg-slate-300'>
+
+<input  type="text" name='pname' placeholder='Product name' className="input input-bordered input-primary w-full"  />
+
+
+<select  name='cname' className="select w-full border-primary  shadow-xl">
+            <option disabled selected >Samsung</option>
+             <option >Symphony</option>
+             <option >iphone</option>
+            </select>
+
+
+
+   <select  name='condition' className="select w-full border-primary  shadow-xl">
+            <option disabled selected >Excellent</option>
+             <option >Good</option>
+             <option >Fair</option>
+            </select>
+
+
+
+<input  type="text" name='img' placeholder='ImageUrl' className="input input-bordered input-primary w-full"  />
+
+<input  type="text" name='rprice' placeholder='Resale price' className="input input-bordered input-primary w-full"  />
+<input  type="text" name='orprice' placeholder='Orginal price' className="input input-bordered input-primary w-full"  />
+<input  type="text" name='location' placeholder='location' className="input input-bordered input-primary w-full"  />
+
+<input  type="text" name='used' placeholder='used of years' className="input input-bordered input-primary w-full"  />
+<input  type="text" name='details' placeholder='details' className="input input-bordered input-primary w-full"  />
+<input  type="text" name='phone' placeholder='phone' className="input input-bordered input-primary w-full"  />
+<input  type="time" name='time' placeholder='time' className="input input-bordered input-primary w-full"  />
+
+
+</div>
+
+<div className='my-3 text-center'>
+     <input type="submit" value='Add Product' className="btn btn-active btn-primary w-40 px-10 "/>
+     </div>
+</form>
+
+
        
-       <Form onSubmit={handleAddProduct}>
-                   <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 p-10 bg-slate-300'>
-       
-                 
-       
-                   <input onBlur={handleInputBlur} type="text" name='product_name' placeholder='Product Name' className="input input-bordered input-primary w-full"  />
-                   <input onBlur={handleInputBlur} type="text" name='category_name' placeholder='Category_name' className="input input-bordered input-primary w-full"  />
-                   <input onBlur={handleInputBlur} type="text" name='img' placeholder='ImgUrl' className="input input-bordered input-primary w-full"  />
-                   <input onBlur={handleInputBlur} type="text" name='resale_price' placeholder='Resale Price' className="input input-bordered input-primary w-full"  />
-                   <input onBlur={handleInputBlur} type="text" name='orginal_price' placeholder='Original Price' className="input input-bordered input-primary w-full"  />
-                   <input onBlur={handleInputBlur} type="time" name='time' placeholder='time' className="input input-bordered input-primary w-full"  />
-                   <input onBlur={handleInputBlur} type="text" name='used' placeholder='years of used' className="input input-bordered input-primary w-full"  />
-                 
-                   <input onBlur={handleInputBlur} type="text" name='sellers_name' placeholder='Seller name' className="input input-bordered input-primary w-full"  />
-                   <input onBlur={handleInputBlur} type="text" name='email' defaultValue={user?.email} placeholder='email'  className="input input-bordered input-primary w-full"  />
-
-                   <input onBlur={handleInputBlur} type="text" name='phone' placeholder='phone'  className="input  input-bordered input-primary w-full"  />
-
-                   <input onBlur={handleInputBlur} type="text" name='location' placeholder='location' className="input input-bordered input-primary w-full"  />
-
-                   <input onBlur={handleInputBlur} type="text" name='details' placeholder='Details' className="input input-bordered input-primary w-full"  />
-
-                   <input onBlur={handleInputBlur} type="text" name='status' placeholder='Status' className="input input-bordered input-primary w-full"  />
-
-                   <input onBlur={handleInputBlur} type="text" name='verify' placeholder='not verified' className="input input-bordered input-primary w-full"  />
-
-                   <br />
-                 {/* <Link to={'/myproduct'}></Link> */}
-                   </div>
-                   <div className='my-3 text-center'>
-                   <input type="submit" value='Add Product' className="btn btn-active bg w-40 px-10 "/>
-           
-              </div>
-               </Form>
+     
               </div>
            );
        };

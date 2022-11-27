@@ -15,16 +15,17 @@ const navigate =useNavigate()
         
         const email =form.email.value;
         const password=form.password.value
+        const verify= 'not verified'
 
         // const user=form.user.value
         const role=form.role.value
 
-        console.log(name,email,password,role)
+        // console.log(name,email,password,role,verfiy)
 
         createUser(email,password)
         .then(result=>{
           const user=result.user
-          handleUpdateProfile(name, email, role)
+          handleUpdateProfile(name, email, role,verify)
           console.log('regi user', user)
           form.reset()
           navigate('/login')
@@ -45,27 +46,28 @@ const navigate =useNavigate()
 }
 
             //updateUserProfile
-            const handleUpdateProfile =(name,email,role)=>{
+            const handleUpdateProfile =(name,email,role,verify)=>{
 
               const profile = {
     
                 displayName: name,
                 email:email,
                 role:role,
+                verify:verify,
                 
                 
               }
               updateUserProfile(profile)
               .then(()=>{
-                saveUser(name, email, role)
-                console.log('savee',name,email,role)
+                saveUser(name, email, role,verify)
+                console.log('savee',name,email,role,verify)
               })
               .catch(e=>console.error(e))
             }
         
 
-            const saveUser =(name, email,role)=>{
-              const profile ={name,email,role};
+            const saveUser =(name, email,role,verify)=>{
+              const profile ={name,email,role,verify};
               fetch('http://localhost:5000/users',{
                 method:'POST',
                 headers:{
@@ -117,7 +119,7 @@ const navigate =useNavigate()
                   <span className="label-text">Role</span>
                 </label>
                 <select  name='role' className="select w-full max-w-xs shadow-xl">
-            <option disabled selected >Buyer</option>
+            <option disabled selected >User</option>
              <option >Seller</option>
              
   

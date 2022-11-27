@@ -1,22 +1,33 @@
 import React, {  useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useQuery } from '@tanstack/react-query';
 
 
 
 const AllSellers = () => {
 
- const [sellers, setSellers]=useState([])
+//  const [sellers, setSellers]=useState([])
 
-console.log('sellers',sellers)
+// console.log('sellers',sellers)
 
-    useEffect(()=>{
-        fetch(`http://localhost:5000/sellers?role=Seller`)
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            setSellers(data)
-        })
-    },[])
+const {data : sellers = [], refetch } =useQuery({
+  queryKey:['sellers',],
+  queryFn:async()=> {
+   const res = await fetch(`http://localhost:5000/sellers?role=Seller`)
+   const data =await res.json();
+   return data
+  }
+
+
+})
+    // useEffect(()=>{
+    //     fetch(`http://localhost:5000/sellers?role=Seller`)
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         console.log(data)
+    //         setSellers(data)
+    //     })
+    // },[])
 
 
       
@@ -47,8 +58,9 @@ console.log('sellers',sellers)
         console.log(data)
         if(data.deletedCount > 0){
           toast.success('Seller Deleted Successfully')
-          const remaining = sellers.filter(pro=>pro._id !== id)
-          setSellers(remaining)
+          refetch()
+          // const remaining = sellers.filter(pro=>pro._id !== id)
+          // setSellers(remaining)
         }
       })
     }

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from './../../../context/AuthProvider';
 import { toast } from 'react-hot-toast';
 
-const BookProduct = ({product,loading, setProducts}) => {
+const BookProduct = ({product,loading, setProducts,refetch}) => {
 
     const {user} =useContext(AuthContext)
     const {product_name,location,resale_price,phone} =product
@@ -48,6 +48,7 @@ fetch(`http://localhost:5000/booking`,{
     toast.success("booking Confirmed")
     // setProducts(null)
     form.reset('')
+    refetch()
   }
 })
 console.log('booking',booking)

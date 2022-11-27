@@ -16,6 +16,9 @@ console.log('orders',orders)
             setOrders(data)
         })
     },[user?.email])
+
+  .catch(err=>console.error(err))
+  
     return (
         <div grid grid-cols-1 >
             <h1 className='text-2xl font-bold text-purple-500 text-center my-5'>Total order {orders.length}</h1>

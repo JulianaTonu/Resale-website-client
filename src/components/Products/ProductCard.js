@@ -3,13 +3,13 @@ import toast from 'react-hot-toast';
 
 import BookProduct from "./MyProduct/BookProduct/BookProduct";
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product,refetch}) => {
 
   const [products, setProducts] =useState(null)
 
   console.log('pp',products)
 
-  const {category_name,product_name,img,location,resale_price,orginal_price,used,sellers_name,phone,details,_id, verify}= product
+  const {category_name,product_name,img,location,resale_price,orginal_price,used,sellers_name,phone,details,_id, verify,time}= product
 
 
 
@@ -40,6 +40,7 @@ const ProductCard = ({product}) => {
           <p>Original Price: ${orginal_price}</p>
           <p>Years of used: {used}yrs</p>
           <p>Category: {category_name}</p>
+          <p>Time: {time}</p>
           <p>Sellers Name: {sellers_name}</p>
           <p>Location:{location}</p>
           <p>Contact:{phone}</p>
@@ -67,6 +68,7 @@ const ProductCard = ({product}) => {
         <BookProduct
         product={product}
       setProducts={setProducts}
+      refetch={refetch}
         ></BookProduct>
       </div>
     );

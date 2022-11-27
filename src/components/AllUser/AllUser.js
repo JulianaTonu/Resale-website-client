@@ -9,7 +9,7 @@ const AllUser = () => {
 console.log('users',users)
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/alluser?role=Buyer`)
+        fetch(`http://localhost:5000/alluser?role=User`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
