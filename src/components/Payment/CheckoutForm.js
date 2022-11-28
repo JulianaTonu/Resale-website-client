@@ -4,7 +4,8 @@ import { toast } from 'react-hot-toast';
 
 const CheckoutForm = ({booking}) => {
   // const [loading, setLoading] =useState(true)
-  const {price,email,UserName, _id,product_name}= booking
+  const {price,email,UserName, _id,product_name, 
+    productid}= booking
 
     const [clientSecret, setClientSecret] = useState("");
 
@@ -19,6 +20,25 @@ const CheckoutForm = ({booking}) => {
 console.log('clientsecret',clientSecret)
 
 // const price =parseInt(price)
+const handleDeletePaidProduct =id =>{
+  const procced =window.confirm(`Are you sure you want to delete this reported product?`)
+  
+  if(procced){
+    fetch(`http://localhost:5000/reported/${id}`,{
+      method:'DELETE',
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      if(data.deletedCount > 0){
+        toast.success(' Deleted Successfully')
+        
+      }
+    })
+  }
+}
+
+
 
     useEffect(() => {
       
@@ -103,6 +123,8 @@ setProcessing(true)
         setSuccess('Payment completed')
         toast.success('Congrats! Your Payment completed')
     setTransactionId(paymentIntent.id)
+    handleDeletePaidProduct(
+      productid)
       }
     })
     
