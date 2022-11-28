@@ -7,10 +7,18 @@ import useSeller from '../hooks/useSeller';
 import useAdmin from './../hooks/useAdmin';
 
 const DashboardLayout = () => {
-  const {user}=useContext(AuthContext)
+  const {user,loading}=useContext(AuthContext)
   const [isAdmin]=useAdmin(user?.email)
   const [isSeller]=useSeller(user?.email)
   const [isBuyer]=UseBuyer(user?.email)
+
+
+  //add spinner
+if(loading){
+  return (
+      <button className="btn loading "></button>
+  )
+}
     return (
         <div>
             <Header></Header>

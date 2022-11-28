@@ -10,7 +10,7 @@ const ReportProduct = () => {
 console.log('reportproducts',reportproducts)
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/reported?status=reported`)
+        fetch(`https://resale-website-serverside.vercel.app/reported?status=reported`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
@@ -23,7 +23,7 @@ console.log('reportproducts',reportproducts)
       const procced =window.confirm(`Are you sure you want to delete this reported product?`)
       
       if(procced){
-        fetch(`http://localhost:5000/reported/${id}`,{
+        fetch(`https://resale-website-serverside.vercel.app/reported/${id}`,{
           method:'DELETE',
         })
         .then(res=>res.json())

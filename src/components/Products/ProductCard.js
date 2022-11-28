@@ -9,12 +9,12 @@ const ProductCard = ({product,refetch}) => {
 
   console.log('pp',products)
 
-  const {category_name,product_name,img,location,resale_price,orginal_price,used,sellers_name,phone,details,_id, verify,time}= product
+  const {category_name,product_name,img,location,resale_price,orginal_price,used,sellers_name,phone,details,_id, verify,time,condition}= product
 
 
 
   const handleReport =id =>{
-    fetch(`http://localhost:5000/products/report/${id}`,{
+    fetch(`https://resale-website-serverside.vercel.app/products/report/${id}`,{
       method: 'PUT',
   
     })
@@ -32,22 +32,22 @@ const ProductCard = ({product,refetch}) => {
         <div className="card w-96 bg-base-100 shadow-xl">
         <figure><img src={img} alt="Shoes" /></figure>
         <div className="card-body">
-          <h2 className="card-title text-purple-500 font-bold">
+          <h2 className="card-title text-purple-500 font-bold uppercase">
             {product_name}
-            <div className="badge badge-secondary py-6">Added by {verify} Seller</div>
+            {/* <div className="badge badge-secondary py-6">Added by {verify} Seller</div> */}
           </h2>
           <p>Resale Price: ${resale_price}</p>
           <p>Original Price: ${orginal_price}</p>
           <p>Years of used: {used}yrs</p>
           <p>Category: {category_name}</p>
+          <p>Condition: {condition}</p>
           <p>Time: {time}</p>
-          <p className='flex items-center'>Sellers Name: {sellers_name}{verify ==='verified' && <MdVerified/>}</p>
+          <p className='flex items-center'>Sellers Name: {sellers_name} <span className='text-blue-400'>{verify ==='verified' && <MdVerified/>}</span> </p>
           <p>Location:{location}</p>
           <p>Contact:{phone}</p>
           <p>{details}</p>
 
       
-
           <div className="card-actions justify-start">
             
            

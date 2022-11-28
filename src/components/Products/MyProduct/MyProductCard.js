@@ -35,7 +35,7 @@ const advertise={
   used,
   details
 }
-fetch(`http://localhost:5000/advertise`,{
+fetch(`https://resale-website-serverside.vercel.app/advertise`,{
 
 method:'POST',
 headers:{
@@ -63,7 +63,7 @@ console.log('advertise',advertise)
         const procced =window.confirm(`Are you sure you want to delete this product?`)
         
         if(procced){
-          fetch(`http://localhost:5000/myproduct/${id}`,{
+          fetch(`https://resale-website-serverside.vercel.app/myproduct/${id}`,{
             method:'DELETE',
           })
           .then(res=>res.json())

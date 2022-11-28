@@ -10,7 +10,7 @@ const MyProduct = () => {
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/product?email=${user?.email}`,{
+        fetch(`https://resale-website-serverside.vercel.app/product?email=${user?.email}`,{
            headers:{
             authorization:`bearer ${localStorage.getItem('accessToken')}`
            }

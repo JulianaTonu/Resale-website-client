@@ -48,7 +48,7 @@ time:time
     }
 
 
-    fetch('http://localhost:5000/products',{
+    fetch('https://resale-website-serverside.vercel.app/products',{
 
      method:'POST',
      headers:{

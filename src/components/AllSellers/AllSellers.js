@@ -13,7 +13,7 @@ const AllSellers = () => {
 const {data : sellers = [], refetch } =useQuery({
   queryKey:['sellers',],
   queryFn:async()=> {
-   const res = await fetch(`http://localhost:5000/sellers?role=Seller`)
+   const res = await fetch(`https://resale-website-serverside.vercel.app/sellers?role=Seller`)
    const data =await res.json();
    return data
   }
@@ -21,7 +21,7 @@ const {data : sellers = [], refetch } =useQuery({
 
 })
     // useEffect(()=>{
-    //     fetch(`http://localhost:5000/sellers?role=Seller`)
+    //     fetch(`https://resale-website-serverside.vercel.app/sellers?role=Seller`)
     //     .then(res=>res.json())
     //     .then(data=>{
     //         console.log(data)
@@ -32,7 +32,7 @@ const {data : sellers = [], refetch } =useQuery({
 
       
   const handleVerify = email =>{
-    fetch(`http://localhost:5000/products/verify/${email}`,{
+    fetch(`https://resale-website-serverside.vercel.app/products/verify/${email}`,{
       method: 'PUT',
   
     })
@@ -50,7 +50,7 @@ const {data : sellers = [], refetch } =useQuery({
     const procced =window.confirm(`Are you sure you want to delete this seller?`)
     
     if(procced){
-      fetch(`http://localhost:5000/seller/${id}`,{
+      fetch(`https://resale-website-serverside.vercel.app/seller/${id}`,{
         method:'DELETE',
       })
       .then(res=>res.json())

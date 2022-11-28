@@ -42,7 +42,7 @@ const Header = () => {
 {/* 
             <li className='font-bold  text-white font-serif'><Link to='/myproduct'>My Product</Link></li> */}
             <li className='font-bold  text-white font-serif'><Link to='/dashboard'>Dashboard</Link></li>
-            <li className='font-bold  text-white font-serif'><Link to='/order'>Order</Link></li>
+            {/* <li className='font-bold  text-white font-serif'><Link to='/order'>Order</Link></li> */}
 
             
 

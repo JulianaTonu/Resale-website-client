@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 import useToken from '../../hooks/useToken';
 import { AuthContext } from '../context/AuthProvider';
 import { FcGoogle } from "react-icons/fc"
@@ -11,13 +11,14 @@ const {signIn, loading,signInWithGoogle} =useContext(AuthContext)
 const [loginUserEmail, setLoginUserEmail]=useState('')
 const [token] =useToken(loginUserEmail)
 
-const location =useLocation()
+// const location =useLocation()
 const navigate =useNavigate()
 
-const from =location.state?.from?.pathname || '/' ;
+// const from =location.state?.from?.pathname || '/' ;
 
 if(token){
-  navigate(from,{replace:true})
+  // navigate(from,{replace:true})
+  navigate('/')
 }
 
 //add spinner
@@ -68,7 +69,7 @@ if(loading){
               const saveUser =(name, email,role='User')=>{
                 const profile = {name,email,role,verify:'not verified'};
   
-                fetch('http://localhost:5000/users',{
+                fetch('https://resale-website-serverside.vercel.app/users',{
                   method:'POST',
                   headers:{
                     'content-type':'application/json'

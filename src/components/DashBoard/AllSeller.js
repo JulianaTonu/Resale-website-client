@@ -10,7 +10,7 @@
 // console.log('sellers',sellers)
 
 //     useEffect(()=>{
-//         fetch(`http://localhost:5000/sellers?role=Seller`)
+//         fetch(`https://resale-website-serverside.vercel.app/sellers?role=Seller`)
 //         .then(res=>res.json())
 //         .then(data=>{
 //             console.log(data)
@@ -22,7 +22,7 @@
 
     
 //   const handleVerify =id =>{
-//     fetch(`http://localhost:5000/products/verify/${id}`,{
+//     fetch(`https://resale-website-serverside.vercel.app/products/verify/${id}`,{
 //       method: 'PUT',
   
 //     })

@@ -76,7 +76,7 @@ navigate('/login')
             const saveUser =(name, email,role='User')=>{
               const profile = {name,email,role,verify:'not verified'};
 
-              fetch('http://localhost:5000/users',{
+              fetch('https://resale-website-serverside.vercel.app/users',{
                 method:'POST',
                 headers:{
                   'content-type':'application/json'
@@ -93,7 +93,7 @@ navigate('/login')
             }
 
 // const getUserToken =email=>{
-//   fetch(`http://localhost:5000/jwt?email=${email}`)
+//   fetch(`https://resale-website-serverside.vercel.app/jwt?email=${email}`)
 //   .then(res=>res.json())
 //   .then(data=>{
 //     if(data.accessToken){

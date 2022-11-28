@@ -9,7 +9,7 @@ const AllUser = () => {
 console.log('users',users)
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/alluser?role=User`)
+        fetch(`https://resale-website-serverside.vercel.app/alluser?role=User`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
@@ -22,7 +22,7 @@ console.log('users',users)
       const procced =window.confirm(`Are you sure you want to delete this user?`)
       
       if(procced){
-        fetch(`http://localhost:5000/buyer/${id}`,{
+        fetch(`https://resale-website-serverside.vercel.app/buyer/${id}`,{
           method:'DELETE',
         })
         .then(res=>res.json())

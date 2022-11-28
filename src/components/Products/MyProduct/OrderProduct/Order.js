@@ -10,7 +10,7 @@ const {user}=useContext(AuthContext)
 console.log('orders',orders)
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/bookings?email=${user?.email}`)
+        fetch(`https://resale-website-serverside.vercel.app/bookings?email=${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data)

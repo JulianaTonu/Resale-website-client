@@ -18,7 +18,7 @@ console.log('cate',category_name)
 const {data : products = [], refetch } =useQuery({
     queryKey:['products',category_name],
     queryFn:async()=> {
-     const res = await fetch(`http://localhost:5000/category?category_name=${category_name}`)
+     const res = await fetch(`https://resale-website-serverside.vercel.app/category?category_name=${category_name}`)
      const data =await res.json();
      return data
     }
@@ -29,7 +29,7 @@ const {data : products = [], refetch } =useQuery({
 
 
     // useEffect(()=>{
-    //     fetch(`http://localhost:5000/category?category_name=${category_name}`)
+    //     fetch(`https://resale-website-serverside.vercel.app/category?category_name=${category_name}`)
     //     .then(res=>res.json())
     //     .then(data=>{
     //         console.log(data)

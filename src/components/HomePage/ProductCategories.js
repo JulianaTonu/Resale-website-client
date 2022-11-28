@@ -5,9 +5,9 @@ import Category from './Category';
 const ProductCategories = () => {
 const [Categories, setCategories] =useState([])
 
-// fetch('http://localhost:5000/categories')
+// fetch('https://resale-website-serverside.vercel.app/categories')
     useEffect(()=>{
-        axios.get('http://localhost:5000/categories')
+        axios.get('https://resale-website-serverside.vercel.app/categories')
       
         .then(res=>setCategories(res?.data))
         // .then(data =>setCategories(data))

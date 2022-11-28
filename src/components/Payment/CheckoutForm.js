@@ -24,7 +24,7 @@ const handleDeletePaidProduct =id =>{
   const procced =window.confirm(`Are you sure you want to delete this reported product?`)
   
   if(procced){
-    fetch(`http://localhost:5000/reported/${id}`,{
+    fetch(`https://resale-website-serverside.vercel.app/reported/${id}`,{
       method:'DELETE',
     })
     .then(res=>res.json())
@@ -42,7 +42,7 @@ const handleDeletePaidProduct =id =>{
 
     useEffect(() => {
       
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://resale-website-serverside.vercel.app/create-payment-intent', {
           method: "POST",
           headers: {
             "Content-Type":"application/json" 
@@ -108,7 +108,7 @@ setProcessing(true)
       email,
       bookingId:_id
     }
-    fetch('http://localhost:5000/payments',{
+    fetch('https://resale-website-serverside.vercel.app/payments',{
       method:'POST',
       headers:{
         'content-type':'application/json',
