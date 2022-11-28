@@ -1,3 +1,69 @@
+# Project: BecheDao.com (Resale-website)
+## Live Link: https://resale-website-8d51b.web.app/
+
+### Admin Login:
+
+#### adminEmail: tonmoy@gmail.com 
+
+#### adminPassword: tonmoy123
+
+
+
+## Features :
+
+#### 1.Firebase Authentication(email & password , Google)
+
+#### 2. Admin can verify Seller
+
+#### 3. Admin can see all Sellers 
+
+#### 4. Admin can see all Buyers 
+
+#### 5. Admin can see reported product
+
+#### 6. Seller Can Add product
+
+#### 7. User can book product
+
+#### 8. User can order product
+
+#### 9. User can payment for product
+
+#### 10. Private Route
+
+#### 11. Clickable Cards
+
+#### 12. Responsive ( Mobile And Desktop)
+
+## Technology💻
+1. React 
+2. Tailwind , daisyUi
+3. React Icons
+4. React Hot Toast
+5. React Router Dom
+6. React-image-viewer-hook
+7. Firebase
+8. MongoDB
+9. JWT(jsonwebtoken)
+10. React Query
+11. Axios
+12. Stripe for Payment method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
