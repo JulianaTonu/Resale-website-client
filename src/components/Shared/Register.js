@@ -1,12 +1,21 @@
 // import { stringify } from 'postcss';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { FcGoogle } from "react-icons/fc"
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
 const {createUser,updateUserProfile,signInWithGoogle}=useContext(AuthContext)
+
+const [createdUser ,setCreatedUser]= useState('')
+const [token]=useToken(createdUser)
+
 const navigate =useNavigate()
+
+if(token){
+navigate('/login')
+}
 
     const handleSignup = event =>{
         event.preventDefault()
@@ -77,9 +86,26 @@ const navigate =useNavigate()
               })
               .then(res=>res.json())
               .then(data=>{
+
+                setCreatedUser(email)
+                // getUserToken(email)
                 console.log('saveUser',data)
               })
             }
+
+// const getUserToken =email=>{
+//   fetch(`http://localhost:5000/jwt?email=${email}`)
+//   .then(res=>res.json())
+//   .then(data=>{
+//     if(data.accessToken){
+//       localStorage.setItem('accessToken', data.accessToken)
+//       navigate('/')
+//     }
+//   })
+// }
+
+
+
     return (
         <div className="hero my-18 ">
         <div className="hero-content ">

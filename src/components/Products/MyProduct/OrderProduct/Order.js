@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from './../../../context/AuthProvider';
+import { Link } from 'react-router-dom';
 
 
 const Order = () => {
@@ -17,7 +18,7 @@ console.log('orders',orders)
         })
     },[user?.email])
 
-  .catch(err=>console.error(err))
+  
   
     return (
         <div grid grid-cols-1 >
@@ -51,7 +52,19 @@ console.log('orders',orders)
             <td>{order.product_name}</td>
             <td>{order.email}</td>
             <td>{order.price}</td>
-            <td ><button className='btn bg btn-sm'>Pay</button></td>
+            <td >
+            {
+              order.price && !order.paid && <Link to={`/dashboard/payment/${order._id}`}>
+              <button 
+              className='btn bg btn-sm'
+              >Pay</button>
+              </Link>
+            }
+            {
+              order.price && order.paid && <span className= 'text-green-500'>Paid</span>
+            }
+
+            </td>
             
           </tr>
           )

@@ -1,12 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../hooks/useToken';
 import { AuthContext } from '../context/AuthProvider';
 
 
 const Login = () => {
 const {signIn, loading} =useContext(AuthContext)
+
+const [loginUserEmail, setLoginUserEmail]=useState('')
+const [token] =useToken(loginUserEmail)
+
 const location =useLocation()
 const navigate =useNavigate()
+
+const from =location.state?.from?.pathname || '/' ;
+
+if(token){
+  navigate(from,{replace:true})
+}
 
 //add spinner
 if(loading){
@@ -18,7 +29,6 @@ if(loading){
     const handleSubmit = event =>{
       
 
-      const from =location.state?.from?.pathname || '/' ;
 
         event.preventDefault()
         const form =event.target
@@ -31,7 +41,10 @@ if(loading){
         .then(result=>{
         const user=result.user
         console.log('login user', user)
-        navigate(from,{replace:true})
+
+        setLoginUserEmail(email)
+
+      
         })
         .catch(err=>console.error(err))
       }  

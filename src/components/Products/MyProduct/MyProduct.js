@@ -11,7 +11,9 @@ const MyProduct = () => {
 
     useEffect(()=>{
         fetch(`http://localhost:5000/product?email=${user?.email}`,{
-           
+           headers:{
+            authorization:`bearer ${localStorage.getItem('accessToken')}`
+           }
         })
         .then(res=> res.json())
         .then(data=>{

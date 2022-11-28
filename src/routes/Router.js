@@ -19,6 +19,8 @@ import BuyerRoute from './BuyerRoute';
 import ReportProducts from "../components/Products/ReportProduct";
 import ReportProduct from "../components/Products/ReportProduct";
 import PrivateRoute from './PrivateRoute';
+import Payment from "../components/Payment/Payment";
+import DisplayError from './../components/Shared/DiaplayError';
 
 
 export const router = createBrowserRouter([
@@ -65,6 +67,7 @@ export const router = createBrowserRouter([
 {
 path:'/dashboard',
 element:<DashboardLayout></DashboardLayout>,
+errorElement:<DisplayError></DisplayError>,
 children:[
     {
         path:'/dashboard',
@@ -94,6 +97,11 @@ children:[
     {
         path:'/dashboard/report',
         element:<AdminRoute><ReportProduct></ReportProduct></AdminRoute>
+    },
+    {
+        path:'/dashboard/payment/:id',
+        element:<Payment></Payment>,
+        loader:({params})=>fetch(`http://localhost:5000/booking/${params.id}`)
     },
 ]
 
