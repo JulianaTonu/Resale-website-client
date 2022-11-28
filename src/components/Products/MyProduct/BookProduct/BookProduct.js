@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 const BookProduct = ({product,loading, setProducts,refetch}) => {
 
     const {user} =useContext(AuthContext)
-    const {product_name,location,resale_price,phone} =product
+    const {product_name,location,resale_price,phone ,_id} =product
 
     console.log('porpo',product)
 
@@ -22,6 +22,7 @@ const BookProduct = ({product,loading, setProducts,refetch}) => {
 console.log(name,email,pName,price,location,img)
 
 const booking={
+  productid:_id,
     UserName:name,
     email:email,
     product_name:pName,

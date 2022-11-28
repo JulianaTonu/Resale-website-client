@@ -24,7 +24,7 @@ navigate('/login')
         
         const email =form.email.value;
         const password=form.password.value
-        const verify= 'not verified'
+        // const verify= 'not verified'
 
         // const user=form.user.value
         const role=form.role.value
@@ -34,7 +34,12 @@ navigate('/login')
         createUser(email,password)
         .then(result=>{
           const user=result.user
-          handleUpdateProfile(name, email, role,verify)
+          const userInfo ={
+            displayName: name,
+
+          }
+          handleUpdateProfile(userInfo)
+         saveUser(name, email, role)
           console.log('regi user', user)
           form.reset()
           navigate('/login')
@@ -43,40 +48,34 @@ navigate('/login')
 
         
     }
+ //updateUserProfile
+ const handleUpdateProfile =(userInfo)=>{
+  updateUserProfile(userInfo)
+  .then(()=>{
+    // saveUser(name, email, verify,role)
+    // console.log('savee',name,email,verify,role)
+  })
+  .catch(e=>console.error(e))
+}
 
     const handleGooglesignIn=()=>{
           
       signInWithGoogle ()
     .then(result=>{
     const user = result.user
+   
+    const role ='User'
+    saveUser( user.displayName, user.email, role)
+    // saveUser(user.email, user.displayName, verify,role)
     console.log(user)   
   })
   .catch(err=>console.error(err))
 }
+      
+//saveUser to database
+            const saveUser =(name, email,role='User')=>{
+              const profile = {name,email,role,verify:'not verified'};
 
-            //updateUserProfile
-            const handleUpdateProfile =(name,email,role,verify)=>{
-
-              const profile = {
-    
-                displayName: name,
-                email:email,
-                role:role,
-                verify:verify,
-                
-                
-              }
-              updateUserProfile(profile)
-              .then(()=>{
-                saveUser(name, email, role,verify)
-                console.log('savee',name,email,role,verify)
-              })
-              .catch(e=>console.error(e))
-            }
-        
-
-            const saveUser =(name, email,role,verify)=>{
-              const profile ={name,email,role,verify};
               fetch('http://localhost:5000/users',{
                 method:'POST',
                 headers:{
@@ -107,8 +106,8 @@ navigate('/login')
 
 
     return (
-        <div className="hero my-18 ">
-        <div className="hero-content ">
+        <div className="w-full lg:w-1/2 mx-auto flex justify-center my-18 ">
+        <div className=" ">
        
           <div className="card flex-shrink-0 shadow-lg bg-base-100 my-10 py-3">
           <h1 className="text-4xl text-center  font-bold">Register </h1>

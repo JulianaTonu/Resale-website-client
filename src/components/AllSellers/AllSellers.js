@@ -93,6 +93,8 @@ const {data : sellers = [], refetch } =useQuery({
 
             <td ><button onClick={()=>handleVerify(seller.email)} className='btn  bg' >Verify</button></td>
 
+           
+
             {/* <td>
               {
                 seller.verify && 

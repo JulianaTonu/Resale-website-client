@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Category = ({category}) => {
     const {category_name, image, _id} = category
+    
     return (
         <div className="card w-72 h-1/2 shadow-xl image-full mx-auto">
         <figure><img src={image} alt="Shoes" /></figure>

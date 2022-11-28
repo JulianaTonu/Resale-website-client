@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 const CheckoutForm = ({booking}) => {
   // const [loading, setLoading] =useState(true)
-  const {price,email,UserName, _id}= booking
+  const {price,email,UserName, _id,product_name}= booking
 
     const [clientSecret, setClientSecret] = useState("");
 
@@ -83,6 +83,7 @@ setProcessing(true)
     console.log('card info', card)
     const payment={
         price,
+        product:product_name,
       transactionId: paymentIntent.id,
       email,
       bookingId:_id
@@ -132,11 +133,11 @@ setProcessing(true)
             },
           }}
         />
-       
+       {/* || !clientSecret  */}
         <button 
         className='btn btn-sm mt-5 btn-primary' 
         type="submit" 
-        disabled={!stripe  || !clientSecret || processing}>
+        disabled={!stripe  || processing}>
           Pay
         </button>
       </form>

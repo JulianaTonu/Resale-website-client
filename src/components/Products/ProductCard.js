@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 
 import BookProduct from "./MyProduct/BookProduct/BookProduct";
-
+import {MdVerified} from 'react-icons/md'
 const ProductCard = ({product,refetch}) => {
 
   const [products, setProducts] =useState(null)
@@ -41,7 +41,7 @@ const ProductCard = ({product,refetch}) => {
           <p>Years of used: {used}yrs</p>
           <p>Category: {category_name}</p>
           <p>Time: {time}</p>
-          <p>Sellers Name: {sellers_name}</p>
+          <p className='flex items-center'>Sellers Name: {sellers_name}{verify ==='verified' && <MdVerified/>}</p>
           <p>Location:{location}</p>
           <p>Contact:{phone}</p>
           <p>{details}</p>

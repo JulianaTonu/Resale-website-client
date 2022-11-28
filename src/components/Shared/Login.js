@@ -2,10 +2,11 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../hooks/useToken';
 import { AuthContext } from '../context/AuthProvider';
-
+import { FcGoogle } from "react-icons/fc"
 
 const Login = () => {
-const {signIn, loading} =useContext(AuthContext)
+const {signIn, loading,signInWithGoogle} =useContext(AuthContext)
+
 
 const [loginUserEmail, setLoginUserEmail]=useState('')
 const [token] =useToken(loginUserEmail)
@@ -48,17 +49,40 @@ if(loading){
         })
         .catch(err=>console.error(err))
       }  
-    //     const handleGooglesignIn=()=>{
+   
+      const handleGooglesignIn=()=>{
           
-    //       signInWithGoogle ()
-    //     .then(result=>{
-    //     const user = result.user
-    //     console.log(user)   
-    //   })
-    //   .catch(err=>console.error(err))
-      
-    
-    // }
+        signInWithGoogle ()
+      .then(result=>{
+      const user = result.user
+     
+      const role ='User'
+      saveUser( user.displayName, user.email, role)
+      // saveUser(user.email, user.displayName, verify,role)
+      console.log(user)   
+    })
+    .catch(err=>console.error(err))
+  }
+        
+  //saveUser to database
+              const saveUser =(name, email,role='User')=>{
+                const profile = {name,email,role,verify:'not verified'};
+  
+                fetch('http://localhost:5000/users',{
+                  method:'POST',
+                  headers:{
+                    'content-type':'application/json'
+                  },
+                  body:JSON.stringify(profile)
+                })
+                .then(res=>res.json())
+                .then(data=>{
+  
+                  setLoginUserEmail(email)
+                  // getUserToken(email)
+                  console.log('saveUser',data)
+                })
+              }
   
     return (
         <div className="hero  ">
@@ -92,7 +116,10 @@ if(loading){
                 <input type="submit" value="Login" className="btn bg"/>
               </div>
 
-     
+              <div className="form-control mt-2">
+            
+            <button className="btn text-purple-600 font-bold bg1 " type="submit" onClick={handleGooglesignIn}><FcGoogle/><span className='ml-2'>Google</span></button>
+               </div>
 
             </form>
 
